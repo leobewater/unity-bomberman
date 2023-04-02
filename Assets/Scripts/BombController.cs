@@ -77,7 +77,7 @@ public class BombController : MonoBehaviour
 
         position += direction;
 
-        // Checking if overlap tile has collider based on the defined layer
+        // Checking if overlap tile has collided based on the defined layer
         if (Physics2D.OverlapBox(position, Vector2.one / 2f, 0f, explosionLayerMask)) {
             // Check if it's a brick
             ClearDestructible(position);
@@ -111,7 +111,7 @@ public class BombController : MonoBehaviour
         TileBase tile = destructibleTiles.GetTile(cell);
 
         if (tile != null) {
-            // Place the destructible prefab on the tilemap
+            // Place the destructible prefab on the cell
             Instantiate(destructiblePrefab, position, Quaternion.identity);
             // Remove the tile from the tilemap 
             destructibleTiles.SetTile(cell, null);
