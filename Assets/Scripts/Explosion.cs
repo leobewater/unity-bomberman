@@ -20,4 +20,8 @@ public class Explosion : MonoBehaviour
         // Rotate the Z axis (Vector3.forward)
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
+
+    public void DestroyAfter(float seconds) {
+        Destroy(gameObject, seconds);
+    }
 }
