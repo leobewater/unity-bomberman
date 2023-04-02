@@ -3807,6 +3807,7 @@ GameObject:
   - component: {fileID: 2044396009}
   - component: {fileID: 2044396008}
   - component: {fileID: 2044396010}
+  - component: {fileID: 2044396011}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3916,3 +3917,19 @@ MonoBehaviour:
   spriteRendererDown: {fileID: 1111790717}
   spriteRendererLeft: {fileID: 758015603}
   spriteRendererRight: {fileID: 322768997}
+--- !u!114 &2044396011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044396006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77981f1b46f604237a14db51ad39b2c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 1362905080187615504, guid: 1d723db23d1784fb7b650530236b9ba3, type: 3}
+  inputKey: 32
+  bombFuseTime: 3
+  bombAmount: 1
