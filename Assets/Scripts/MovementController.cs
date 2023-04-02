@@ -86,5 +86,8 @@ public class MovementController : MonoBehaviour
 
     private void OnDeathSequenceEnded() {
         gameObject.SetActive(false);
+
+        // Find GameManager and check if any player still alive
+        FindObjectOfType<GameManager>().CheckWinState();
     }
 }
