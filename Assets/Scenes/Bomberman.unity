@@ -3933,3 +3933,4 @@ MonoBehaviour:
   inputKey: 32
   bombFuseTime: 3
   bombAmount: 2
+  explosionPrefab: {fileID: 3353921452069651944, guid: 7ab35f51af4434f1fbb72a0d4d196139, type: 3}
