@@ -14,6 +14,7 @@ public class BombController : MonoBehaviour
 
     [Header("Explosion")]
     public Explosion explosionPrefab;
+    public LayerMask explosionLayerMask;
     public float explosionDuration = 1f;
     public int explosionRadius = 1;
 
@@ -51,7 +52,7 @@ public class BombController : MonoBehaviour
         // Set Explosion animation
         explosion.SetActiveRenderer(explosion.start);
         // Destroy explosion after explosion duration
-        explosion.DestroyAfter(explosionDuration); 
+        explosion.DestroyAfter(explosionDuration);
 
         Explode(position, Vector2.up, explosionRadius);
         Explode(position, Vector2.down, explosionRadius);
@@ -70,6 +71,12 @@ public class BombController : MonoBehaviour
         }
 
         position += direction;
+
+        // Checking if overlap tile has collider based on the defined layer
+        if (Physics2D.OverlapBox(position, Vector2.one / 2f, 0f, explosionLayerMask)) {
+            // Hit the edge and ignore the explosion on those tiles
+            return;
+        }
 
         // Bomb exploding
         Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
