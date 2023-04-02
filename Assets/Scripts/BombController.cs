@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class BombController : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class BombController : MonoBehaviour
     public LayerMask explosionLayerMask;
     public float explosionDuration = 1f;
     public int explosionRadius = 1;
+
+    [Header("Destructible")]
+    public Tilemap destructibleTiles;
+    public Destructible destructiblePrefab;
 
     private void OnEnable() {
         bombsRemaining = bombAmount;
@@ -74,6 +79,9 @@ public class BombController : MonoBehaviour
 
         // Checking if overlap tile has collider based on the defined layer
         if (Physics2D.OverlapBox(position, Vector2.one / 2f, 0f, explosionLayerMask)) {
+            // Check if it's a brick
+            ClearDestructible(position);
+
             // Hit the edge and ignore the explosion on those tiles
             return;
         }
@@ -94,6 +102,19 @@ public class BombController : MonoBehaviour
         // Set bomb "is Trigger" in Collider when player walks away the bomb after dropped
         if (other.gameObject.layer == LayerMask.NameToLayer("Bomb")) {
             other.isTrigger = false;
+        }
+    }
+
+    private void ClearDestructible(Vector2 position) {
+        // Convert World position to Cell position
+        Vector3Int cell = destructibleTiles.WorldToCell(position);
+        TileBase tile = destructibleTiles.GetTile(cell);
+
+        if (tile != null) {
+            // Place the destructible prefab on the tilemap
+            Instantiate(destructiblePrefab, position, Quaternion.identity);
+            // Remove the tile from the tilemap 
+            destructibleTiles.SetTile(cell, null);
         }
     }
 }
