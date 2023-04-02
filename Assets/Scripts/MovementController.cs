@@ -18,13 +18,13 @@ public class MovementController : MonoBehaviour
     }
 
     private void Update() {
-        if (Input.GetKeyDown(inputUp)) {
+        if (Input.GetKey(inputUp)) {
             SetDirection(Vector2.up);
-        } else if (Input.GetKeyDown(inputDown)) {
+        } else if (Input.GetKey(inputDown)) {
             SetDirection(Vector2.down);
-        } else if (Input.GetKeyDown(inputLeft)) {
+        } else if (Input.GetKey(inputLeft)) {
             SetDirection(Vector2.left);
-        } else if (Input.GetKeyDown(inputRight)) {
+        } else if (Input.GetKey(inputRight)) {
             SetDirection(Vector2.right);
         } else {
             // Not moving
