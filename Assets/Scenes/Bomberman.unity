@@ -3912,3 +3912,7 @@ MonoBehaviour:
   inputDown: 115
   inputLeft: 97
   inputRight: 100
+  spriteRendererUp: {fileID: 440612536}
+  spriteRendererDown: {fileID: 1111790717}
+  spriteRendererLeft: {fileID: 758015603}
+  spriteRendererRight: {fileID: 322768997}
