@@ -35,5 +35,14 @@ public class BombController : MonoBehaviour
         yield return new WaitForSeconds(bombFuseTime);
 
         Destroy(bomb);
+        bombsRemaining++;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        // Set bomb "is Trigger" in Collider when player walks away the bomb after dropped
+        if(other.gameObject.layer == LayerMask.NameToLayer("Bomb")) {
+            other.isTrigger = false;
+        }
     }
 }

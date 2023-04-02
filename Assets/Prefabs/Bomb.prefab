@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3284551399105862208}
   - component: {fileID: 7882117725897551511}
   - component: {fileID: 1835790993085665242}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4423713602737941289
 SpriteRenderer:
